@@ -8,8 +8,8 @@ import Experiences from './components/Experiences'
 import Footer from './components/Footer'
 import ContactCard from './components/ContactCard'
 import umichLogo from './assets/umich.png'
-// Use the photo placed in `public/` so it is served from the app root at runtime.
-const heroPhoto = import.meta.env.BASE_URL + 'IMG_20240903_210551_198.jpg'
+// Import the hero photo from `src/assets` so Vite bundles it into `dist/assets`
+import heroPhoto from './assets/IMG_20240903_210551_198.jpg'
 
 function App() {
   return (
