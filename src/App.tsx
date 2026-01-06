@@ -51,7 +51,7 @@ function App() {
                 <p className="muted">B.S.E. in Data Science — Expected Graduation: May 2027</p>
                 <div className="gpa-row">
                   <span className="gpa-label">GPA</span>
-                  <span className="gpa-value">3.68</span>
+                  <span className="gpa-value">3.71</span>
                   <span className="gpa-scale">/ 4.0</span>
                 </div>
               </div>
@@ -63,6 +63,8 @@ function App() {
                 <li>Applied Regression</li>
                 <li>Bayesian Statistics</li>
                 <li>Machine Learning</li>
+                <li>Web Systems</li>
+                <li>Financial Mathematics</li>
               </ul>
             </div>
           </div>
