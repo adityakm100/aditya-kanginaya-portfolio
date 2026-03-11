@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// Base must end with a slash for GitHub Pages subpath
 export default defineConfig({
+  plugins: [react()],
   base: '/aditya-kanginaya-portfolio/',
 })
