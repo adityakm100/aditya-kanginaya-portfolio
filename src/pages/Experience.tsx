@@ -60,7 +60,7 @@ export default function Experience() {
       </div>
 
       <footer className="page-footer">
-        <span>University of Michigan — B.S.E. Data Science, Expected May 2028</span>
+        <span>University of Michigan — B.S.E. Data Science, Expected May 2027</span>
         <span>GPA 3.71 / 4.0</span>
       </footer>
     </div>
