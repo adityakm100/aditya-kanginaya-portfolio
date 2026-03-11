@@ -1,0 +1,49 @@
+.skills-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--rule);
+}
+
+.skill-group {
+  background: var(--card);
+  padding: 40px;
+  opacity: 0;
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.skill-group-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-pill {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  padding: 6px 14px;
+  background: var(--bg);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  transition: all 0.15s;
+  cursor: default;
+}
+
+.skill-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .skills-layout { grid-template-columns: 1fr; }
+}

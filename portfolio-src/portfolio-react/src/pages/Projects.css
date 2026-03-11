@@ -1,0 +1,75 @@
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2px;
+  background: var(--rule);
+}
+
+.project-card {
+  background: var(--card);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  opacity: 0;
+  animation: fadeUp 0.5s ease forwards;
+  transition: background 0.2s;
+}
+
+.project-card:hover { background: #FAFAF7; }
+
+.project-index {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.project-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.project-desc {
+  font-size: 0.875rem;
+  color: #5A5650;
+  line-height: 1.65;
+  flex: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.project-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: color 0.2s;
+}
+
+.project-link:hover { color: var(--accent); }
+
+.project-wip {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}

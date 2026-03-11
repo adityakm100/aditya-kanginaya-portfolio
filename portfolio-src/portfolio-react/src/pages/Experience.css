@@ -1,0 +1,73 @@
+.exp-list { display: flex; flex-direction: column; }
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--rule);
+  opacity: 0;
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.exp-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-transform: uppercase;
+  padding-top: 4px;
+}
+
+.exp-company {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  margin-top: 8px;
+  line-height: 1.2;
+}
+
+.exp-stack {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.exp-role {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exp-bullets li {
+  font-size: 0.9rem;
+  color: #3A3630;
+  line-height: 1.65;
+  padding-left: 16px;
+  position: relative;
+}
+
+.exp-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.exp-bullets strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+@media (max-width: 768px) {
+  .exp-item { grid-template-columns: 1fr; gap: 16px; }
+}
