@@ -34,4 +34,4 @@ jobs:
       url: https://adityakm100.github.io/aditya-kanginaya-portfolio/
     steps:
       - name: Deploy
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v3
