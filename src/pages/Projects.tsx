@@ -39,21 +39,6 @@ const projects: Project[] = [
     },
   },
   {
-    id: 'null-hunter',
-    index: '01 — Feb / Mar 2026',
-    name: 'Null Hunter',
-    bullets: [
-      'Reduced manual dataset audit time by 40% by designing a real-time 4-dimension data quality scoring system tracking completeness, uniqueness, consistency, and validity post-imputation.',
-      'Integrates 3 imputation strategies — Simple, KNN, and MICE — handling MCAR, MAR, and MNAR missingness across CSV and Excel inputs.',
-      'Deployed publicly on Streamlit Cloud and validated across 3 real-world benchmark datasets spanning healthcare and housing domains with missingness rates up to 30%.',
-    ],
-    tags: ['Streamlit', 'Pandas', 'Scikit-Learn', 'NumPy'],
-    links: [
-      { label: 'Live Demo ↗', href: 'https://null-hunter-dashboard.streamlit.app/' },
-      { label: 'GitHub ↗', href: 'https://github.com/adityakm100/null-hunter-dashboard' },
-    ],
-  },
-  {
     id: 'cnn-vit',
     index: '03 — Jan / May 2026',
     name: 'CNN vs ViT Architecture Benchmarking Study',
@@ -70,17 +55,18 @@ const projects: Project[] = [
     },
   },
   {
-    id: 'big-ten',
-    index: '04 — 2026',
-    name: 'Big Ten Fight Song Analysis',
+    id: 'null-hunter',
+    index: '01 — Feb / Mar 2026',
+    name: 'Null Hunter',
     bullets: [
-      'Entry for the Big Ten Data Visualization Contest analyzing the musical and lyrical evolution of college fight songs across conferences and decades.',
-      'Built 5 interactive views in Tableau exploring tempo vs. duration across conferences, lyrical trope shifts by decade, mood analysis by conference, and early vs. modern era trope comparisons.',
-      'Surfaced that fight songs converged toward higher "Says Fight" trope prevalence from the 1920s onward while "Says Nonsense" tropes declined, and that independent schools averaged significantly higher excitement trope counts than conference-affiliated programs.',
+      'Reduced manual dataset audit time by 40% by designing a real-time 4-dimension data quality scoring system tracking completeness, uniqueness, consistency, and validity post-imputation.',
+      'Integrates 3 imputation strategies — Simple, KNN, and MICE — handling MCAR, MAR, and MNAR missingness across CSV and Excel inputs.',
+      'Deployed publicly on Streamlit Cloud and validated across 3 real-world benchmark datasets spanning healthcare and housing domains with missingness rates up to 30%.',
     ],
-    tags: ['Tableau', 'Data Visualization', 'Statistical Analysis'],
+    tags: ['Streamlit', 'Pandas', 'Scikit-Learn', 'NumPy'],
     links: [
-      { label: 'Tableau Public ↗', href: 'https://public.tableau.com/app/profile/aditya.kanginaya.madhuchandra/viz/DataVizProjectIteration1_17678351284180/EraTropeCompare' },
+      { label: 'Live Demo ↗', href: 'https://null-hunter-dashboard.streamlit.app/' },
+      { label: 'GitHub ↗', href: 'https://github.com/adityakm100/null-hunter-dashboard' },
     ],
   },
   {
@@ -102,6 +88,24 @@ const projects: Project[] = [
     media: {
       src: `${BASE}bubbul.png`,
       caption: 'Bubbul desktop app — real-time focus mode switching driven by Chrome extension tab classification.',
+    },
+  },
+  {
+    id: 'big-ten',
+    index: '04 — 2026',
+    name: 'Big Ten Fight Song Analysis',
+    bullets: [
+      'Entry for the Big Ten Data Visualization Contest analyzing the musical and lyrical evolution of college fight songs across conferences and decades.',
+      'Built 5 interactive views in Tableau exploring tempo vs. duration across conferences, lyrical trope shifts by decade, mood analysis by conference, and early vs. modern era trope comparisons.',
+      'Surfaced that fight songs converged toward higher "Says Fight" trope prevalence from the 1920s onward while "Says Nonsense" tropes declined, and that independent schools averaged significantly higher excitement trope counts than conference-affiliated programs.',
+    ],
+    tags: ['Tableau', 'Data Visualization', 'Statistical Analysis'],
+    links: [
+      { label: 'Tableau Public ↗', href: 'https://public.tableau.com/app/profile/aditya.kanginaya.madhuchandra/viz/DataVizProjectIteration1_17678351284180/EraTropeCompare' },
+    ],
+    media: {
+      src: `${BASE}big-ten.png`,
+      caption: 'Interactive Tableau dashboard — musical and lyrical evolution of Big Ten fight songs across conferences and eras.',
     },
   },
 ]
