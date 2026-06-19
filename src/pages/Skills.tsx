@@ -3,19 +3,19 @@ import './Skills.css'
 const skillGroups = [
   {
     title: 'Programming Languages',
-    skills: ['Python', 'C++', 'JavaScript', 'R', 'SQL', 'Java', 'React', 'Typescript'],
+    skills: ['Python', 'C++', 'JavaScript', 'R', 'SQL', 'Java', 'TypeScript'],
   },
   {
     title: 'Data Science & ML',
-    skills: ['PyTorch', 'Scikit-Learn', 'Pandas', 'NumPy', 'SciPy', 'LangChain', 'LangGraph', 'Streamlit', 'Tableau'],
+    skills: ['PyTorch', 'Scikit-Learn', 'Pandas', 'NumPy', 'LangGraph', 'ChromaDB', 'Streamlit', 'Tableau', 'SciPy', 'MediaPipe', 'OpenCV'],
   },
   {
     title: 'Infrastructure & Cloud',
-    skills: ['AWS', 'Docker', 'Jenkins', 'CI/CD', 'Vite'],
+    skills: ['AWS', 'Docker', 'CI/CD', 'PostgreSQL', 'Git'],
   },
   {
     title: 'Tools & Practices',
-    skills: ['Flutter', 'Git', 'Agile', 'A/B Testing'],
+    skills: ['Flutter', 'Git', 'Agile', 'Figma'],
   },
 ]
 

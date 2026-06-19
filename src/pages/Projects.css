@@ -73,3 +73,56 @@
   letter-spacing: 0.06em;
   color: var(--muted);
 }
+
+.project-bullets {
+  font-size: 0.875rem;
+  color: #5A5650;
+  line-height: 1.65;
+  flex: 1;
+  padding-left: 1.1em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.project-bullets li {
+  padding-left: 0.2em;
+}
+
+.project-status {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--accent2);
+}
+
+.project-note {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.63rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  width: 100%;
+  margin-top: 2px;
+}
+
+.project-media {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-img {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--rule);
+  display: block;
+}
+
+.project-caption {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.5;
+  font-style: italic;
+  margin: 0;
+}

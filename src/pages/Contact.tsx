@@ -17,8 +17,8 @@ export default function Contact() {
 
       <div className="contact-layout">
         <p className="contact-intro">
-          Open to Summer 2026 internships in{' '}
-          <em>data science</em> and <em>software engineering</em>.
+          Open to Summer 2027 internships in{' '}
+          <em>SWE</em>, <em>Data Science</em>, and <em>AI Engineering</em>.
         </p>
 
         <div className="contact-links">
@@ -42,7 +42,7 @@ export default function Contact() {
 
       <footer className="page-footer">
         <span>University of Michigan, Ann Arbor</span>
-        <span>Expected May 2027</span>
+        <span>Expected May 2028</span>
       </footer>
     </div>
   )
