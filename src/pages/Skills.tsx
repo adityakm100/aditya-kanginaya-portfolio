@@ -72,9 +72,9 @@ const tabs: { key: TabKey; label: string; skills: SkillItem[] }[] = [
     key: 'infra',
     label: 'Infrastructure',
     skills: [
-      { name: 'AWS' },
-      { name: 'Docker' },
-      { name: 'PostgreSQL' },
+      { name: 'AWS',        anchor: 'mni-experience', page: 'experience' },
+      { name: 'Docker',     anchor: 'mni-experience', page: 'experience' },
+      { name: 'PostgreSQL', anchor: 'mni-experience', page: 'experience' },
       { name: 'CI/CD' },
       { name: 'Git' },
       { name: 'Electron', anchor: 'bubbul', page: 'projects' },
