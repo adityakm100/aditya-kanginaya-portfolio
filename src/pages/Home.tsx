@@ -45,16 +45,16 @@ export default function Home({ setActivePage }: Props) {
 
         <div className="hero-stats">
           <div className="hero-stat">
-            <span className="hero-stat-num">3.71</span>
-            <span className="hero-stat-label">GPA</span>
+            <span className="hero-stat-num">300+</span>
+            <span className="hero-stat-label">Engineers & Students Reached</span>
           </div>
           <div className="hero-stat">
-            <span className="hero-stat-num">2+</span>
-            <span className="hero-stat-label">Industry Roles</span>
+            <span className="hero-stat-num">70%</span>
+            <span className="hero-stat-label">Outreach Time Saved</span>
           </div>
           <div className="hero-stat">
-            <span className="hero-stat-num">↑28%</span>
-            <span className="hero-stat-label">Avg. Impact Metric</span>
+            <span className="hero-stat-num">40%</span>
+            <span className="hero-stat-label">Coding Effort Reduced</span>
           </div>
         </div>
       </section>

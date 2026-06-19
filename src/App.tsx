@@ -19,7 +19,7 @@ export default function App() {
         {activePage === 'home'       && <Home setActivePage={setActivePage} />}
         {activePage === 'experience' && <Experience />}
         {activePage === 'projects'   && <Projects />}
-        {activePage === 'skills'     && <Skills />}
+        {activePage === 'skills'     && <Skills setActivePage={setActivePage} />}
         {activePage === 'contact'    && <Contact />}
       </main>
     </div>

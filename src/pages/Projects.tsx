@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import './Projects.css'
 
 interface ProjectLink {
@@ -6,6 +7,7 @@ interface ProjectLink {
 }
 
 interface Project {
+  id: string
   index: string
   name: string
   bullets: string[]
@@ -16,8 +18,28 @@ interface Project {
   note?: string
 }
 
+const BASE = import.meta.env.BASE_URL
+
 const projects: Project[] = [
   {
+    id: 'ai-outreach',
+    index: '02 — Jan / May 2026',
+    name: 'AI Outreach Orchestrator',
+    bullets: [
+      'Cut nonprofit outreach drafting time by 70% by architecting a Planner-Writer-Critic LangGraph pipeline with per-node prompt isolation and stateful in-conversation memory that resets between sessions to prevent context bleed across clients; presented to 300+ attendees at the Google Developer Student Club Gemini Showcase.',
+      'Reduced draft iterations from 7 to 2–3 and token usage by 80% by implementing a self-scoring Critic node evaluating output against a team-defined rubric of tone, prose structure, and voice guidelines.',
+      'Deployed as a live tool integrated with club infrastructure enabling a card-based review workflow for member-managed outreach across 50+ monthly contacts.',
+    ],
+    tags: ['LangGraph', 'ChromaDB', 'RAG', 'Python', 'Gemini'],
+    links: [],
+    status: 'Deployed — May 2026',
+    media: {
+      src: `${BASE}ai-orchestrator.png`,
+      caption: 'Planner-Writer-Critic pipeline — per-node prompt isolation with stateful memory that resets between sessions.',
+    },
+  },
+  {
+    id: 'null-hunter',
     index: '01 — Feb / Mar 2026',
     name: 'Null Hunter',
     bullets: [
@@ -32,22 +54,7 @@ const projects: Project[] = [
     ],
   },
   {
-    index: '02 — Jan / May 2026',
-    name: 'AI Outreach Orchestrator',
-    bullets: [
-      'Cut nonprofit outreach drafting time by 70% by architecting a Planner-Writer-Critic LangGraph pipeline with per-node prompt isolation and stateful in-conversation memory that resets between sessions to prevent context bleed across clients.',
-      'Reduced draft iterations from 7 to 2–3 and token usage by 80% by implementing a self-scoring Critic node evaluating output against a team-defined rubric of tone, prose structure, and voice guidelines.',
-      'Deployed as a live tool integrated with club infrastructure enabling a card-based review workflow for member-managed outreach across 50+ monthly contacts.',
-    ],
-    tags: ['LangGraph', 'ChromaDB', 'RAG', 'Python', 'Gemini'],
-    links: [],
-    status: 'Deployed — May 2026',
-    media: {
-      src: '/ai-orchestrator.png',
-      caption: 'Planner-Writer-Critic pipeline — per-node prompt isolation with stateful memory that resets between sessions.',
-    },
-  },
-  {
+    id: 'cnn-vit',
     index: '03 — Jan / May 2026',
     name: 'CNN vs ViT Architecture Benchmarking Study',
     bullets: [
@@ -58,11 +65,12 @@ const projects: Project[] = [
     tags: ['PyTorch', 'Python', 'Scikit-Learn', 'NumPy'],
     links: [],
     media: {
-      src: '/cnn-auroc.png',
+      src: `${BASE}cnn-auroc.png`,
       caption: 'Train vs. validation AUROC over 30 epochs — gap illustrates overfitting behavior that informed architecture selection over ViT.',
     },
   },
   {
+    id: 'big-ten',
     index: '04 — 2026',
     name: 'Big Ten Fight Song Analysis',
     bullets: [
@@ -76,6 +84,7 @@ const projects: Project[] = [
     ],
   },
   {
+    id: 'bubbul',
     index: '05 — April 2025',
     name: 'Bubbul',
     bullets: [
@@ -83,6 +92,7 @@ const projects: Project[] = [
       'Built the backend logic for dynamic focus mode switching, processing real-time browser activity signals from a Chrome extension to determine when user behavior diverged from stated intent.',
       'Integrated a FastAPI Python backend with a React/TypeScript/Electron frontend and Chrome extension, bridging real-time tab classification data across the full stack.',
       'Leveraged Claude Haiku via OpenRouter for in-browser tab classification, enabling real-time AI-driven activity categorization without manual input.',
+      'Used a knowledge graph to map user actions and determine optimal focus mode transitions.',
     ],
     tags: ['Python', 'FastAPI', 'React', 'TypeScript', 'Electron', 'Chrome Extension'],
     links: [
@@ -90,13 +100,64 @@ const projects: Project[] = [
     ],
     note: 'Significant contributor — repository maintained by collaborator.',
     media: {
-      src: '/bubbul.png',
+      src: `${BASE}bubbul.png`,
       caption: 'Bubbul desktop app — real-time focus mode switching driven by Chrome extension tab classification.',
     },
   },
 ]
 
+function ProjectCard({ p, delay }: { p: Project; delay: number }) {
+  return (
+    <div
+      className="project-card"
+      id={p.id}
+      style={{ animationDelay: `${delay}s` }}
+    >
+      <div className="project-index">{p.index}</div>
+      <div className="project-name">{p.name}</div>
+      <ul className="project-bullets">
+        {p.bullets.map((b, j) => <li key={j}>{b}</li>)}
+      </ul>
+      {p.media && (
+        <div className="project-media">
+          <img src={p.media.src} alt={p.media.caption} className="project-img" />
+          <p className="project-caption">{p.media.caption}</p>
+        </div>
+      )}
+      <div className="project-tags">
+        {p.tags.map(t => <span className="tag" key={t}>{t}</span>)}
+      </div>
+      <div className="project-links">
+        {p.status && <span className="project-status">{p.status}</span>}
+        {p.links.map(l => (
+          <a
+            key={l.label}
+            href={l.href}
+            target="_blank"
+            rel="noreferrer"
+            className="project-link"
+          >
+            {l.label}
+          </a>
+        ))}
+        {p.note && <span className="project-note">{p.note}</span>}
+      </div>
+    </div>
+  )
+}
+
 export default function Projects() {
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      setTimeout(() => {
+        document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }, 50)
+    }
+  }, [])
+
+  const [featured, ...rest] = projects
+
   return (
     <div className="page-wrapper page-enter">
       <div className="page-header">
@@ -104,43 +165,13 @@ export default function Projects() {
         <h2 className="page-title">Projects</h2>
       </div>
 
+      <div className="projects-featured">
+        <ProjectCard p={featured} delay={0} />
+      </div>
+
       <div className="projects-grid">
-        {projects.map((p, i) => (
-          <div
-            className="project-card"
-            key={i}
-            style={{ animationDelay: `${i * 0.12}s` }}
-          >
-            <div className="project-index">{p.index}</div>
-            <div className="project-name">{p.name}</div>
-            <ul className="project-bullets">
-              {p.bullets.map((b, j) => <li key={j}>{b}</li>)}
-            </ul>
-            {p.media && (
-              <div className="project-media">
-                <img src={p.media.src} alt={p.media.caption} className="project-img" />
-                <p className="project-caption">{p.media.caption}</p>
-              </div>
-            )}
-            <div className="project-tags">
-              {p.tags.map(t => <span className="tag" key={t}>{t}</span>)}
-            </div>
-            <div className="project-links">
-              {p.status && <span className="project-status">{p.status}</span>}
-              {p.links.map(l => (
-                <a
-                  key={l.label}
-                  href={l.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="project-link"
-                >
-                  {l.label}
-                </a>
-              ))}
-              {p.note && <span className="project-note">{p.note}</span>}
-            </div>
-          </div>
+        {rest.map((p, i) => (
+          <ProjectCard key={p.id} p={p} delay={(i + 1) * 0.12} />
         ))}
       </div>
 

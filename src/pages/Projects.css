@@ -1,8 +1,16 @@
+.projects-featured {
+  margin-bottom: 2px;
+}
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 2px;
   background: var(--rule);
+}
+
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; }
 }
 
 .project-card {

@@ -1,7 +1,9 @@
+import { useEffect } from 'react'
 import './Experience.css'
 
 const experiences = [
   {
+    id: 'mni-experience',
     date: 'Aug 2025 — Present',
     company: 'MNI Labs / Omni Sciences',
     role: 'Team Lead & Research Engineer',
@@ -13,6 +15,7 @@ const experiences = [
     ],
   },
   {
+    id: undefined,
     date: 'Jun 2025 — Aug 2025',
     company: 'Preh',
     role: 'Software Engineering Intern',
@@ -26,6 +29,15 @@ const experiences = [
 ]
 
 export default function Experience() {
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      setTimeout(() => {
+        document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }, 50)
+    }
+  }, [])
+
   return (
     <div className="page-wrapper page-enter">
       <div className="page-header">
@@ -38,6 +50,7 @@ export default function Experience() {
           <div
             className="exp-item"
             key={i}
+            id={exp.id}
             style={{ animationDelay: `${i * 0.12}s` }}
           >
             <div className="exp-meta">
@@ -61,7 +74,7 @@ export default function Experience() {
 
       <footer className="page-footer">
         <span>University of Michigan — B.S.E. Data Science, Expected May 2028</span>
-        <span>GPA 3.71 / 4.0</span>
+        <span>GPA 3.63 / 4.0</span>
       </footer>
     </div>
   )
