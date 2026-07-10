@@ -43,28 +43,14 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  position: relative;
   transition: color 0.2s;
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -3px; left: 0; right: 0;
-  height: 1px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transition: transform 0.2s;
-}
+.nav-link::after { background: var(--accent); }
 
 .nav-link:hover,
 .nav-link.active {
   color: var(--ink);
-}
-
-.nav-link.active::after,
-.nav-link:hover::after {
-  transform: scaleX(1);
 }
 
 @media (max-width: 768px) {

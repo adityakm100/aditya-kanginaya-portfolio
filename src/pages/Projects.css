@@ -1,4 +1,8 @@
 .projects-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--rule);
   margin-bottom: 2px;
 }
 
@@ -10,6 +14,7 @@
 }
 
 @media (max-width: 768px) {
+  .projects-featured { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
 }
 
@@ -19,12 +24,33 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  opacity: 0;
-  animation: fadeUp 0.5s ease forwards;
   transition: background 0.2s;
 }
 
+.project-card.is-visible { animation: fadeUp 0.5s ease forwards; }
+
 .project-card:hover { background: #FAFAF7; }
+
+/* Featured cards get real visual weight, not just DOM position */
+.projects-featured .project-card {
+  padding: 48px 40px;
+}
+
+.projects-featured .project-name {
+  font-size: 1.85rem;
+}
+
+.projects-featured .project-index {
+  font-size: 0.72rem;
+}
+
+.projects-featured .project-bullets {
+  font-size: 0.925rem;
+}
+
+.projects-featured .project-img {
+  max-width: 100%;
+}
 
 .project-index {
   font-family: 'DM Mono', monospace;
@@ -38,13 +64,6 @@
   font-size: 1.5rem;
   letter-spacing: -0.01em;
   line-height: 1.2;
-}
-
-.project-desc {
-  font-size: 0.875rem;
-  color: #5A5650;
-  line-height: 1.65;
-  flex: 1;
 }
 
 .project-tags {
@@ -67,13 +86,16 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent2);
-  text-decoration: none;
-  border-bottom: 1px solid currentColor;
   padding-bottom: 1px;
   transition: color 0.2s;
 }
 
 .project-link:hover { color: var(--accent); }
+
+.project-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 
 .project-wip {
   font-family: 'DM Mono', monospace;
@@ -121,11 +143,19 @@
 }
 
 .project-img {
-  width: 72%;
+  width: 100%;
+  max-width: 480px;
   height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
   border-radius: 4px;
   border: 1px solid var(--rule);
   display: block;
+  transition: transform 0.25s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.03);
 }
 
 .project-caption {
@@ -134,4 +164,30 @@
   line-height: 1.5;
   font-style: italic;
   margin: 0;
+}
+
+/* Animated metric numbers within bullets, marked via {{...}} in bullet text */
+.project-bullets .metric {
+  color: var(--accent2);
+  font-weight: 500;
+}
+
+/* Scroll-linked "NN / NN" progress indicator */
+.projects-progress {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 8px 14px;
+  z-index: 50;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .projects-progress { display: none; }
 }

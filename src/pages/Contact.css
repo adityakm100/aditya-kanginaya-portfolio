@@ -10,9 +10,9 @@
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   line-height: 1.2;
   letter-spacing: -0.02em;
-  opacity: 0;
-  animation: fadeUp 0.5s ease forwards 0.1s;
 }
+
+.contact-intro.is-visible { animation: fadeUp 0.5s ease forwards 0.1s; }
 
 .contact-intro em {
   font-style: italic;
@@ -22,9 +22,9 @@
 .contact-links {
   display: flex;
   flex-direction: column;
-  opacity: 0;
-  animation: fadeUp 0.5s ease forwards 0.2s;
 }
+
+.contact-links.is-visible { animation: fadeUp 0.5s ease forwards 0.2s; }
 
 .contact-item {
   display: flex;
@@ -50,9 +50,15 @@
 }
 
 .contact-item-val {
+  display: inline-block;
   font-size: 0.9rem;
   color: var(--accent2);
 }
+
+/* Underline is driven by the parent row's hover, not its own — the value div
+   doesn't span the full clickable row, so :hover on itself would be flaky. */
+.contact-item-val.link-underline::after { transform: scaleX(0); }
+.contact-item:hover .contact-item-val.link-underline::after { transform: scaleX(1); }
 
 .contact-arrow {
   color: var(--muted);

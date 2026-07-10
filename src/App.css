@@ -38,6 +38,68 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Cross-page transitions (View Transitions API). Root cross-fade only, kept
+   separate from .page-enter's slide so the two don't compound; .page-enter
+   itself doubles as the CSS fallback for browsers without View Transitions. */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+  }
+  ::view-transition-old(root) { animation-name: vt-fade-out; }
+  ::view-transition-new(root) { animation-name: vt-fade-in; }
+}
+
+@keyframes vt-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes vt-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* SCROLL REVEAL
+   Elements start hidden and only animate once useScrollReveal adds
+   .is-visible (on entering the viewport, or immediately under reduced motion). */
+.reveal-item { opacity: 0; }
+
+/* SHARED LINK UNDERLINE
+   Draws in on hover instead of an instant color change. Reuses the pattern
+   already used by .nav-link; apply alongside a link's own class. */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.link-underline:hover::after,
+.link-underline.force-underline::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-item { opacity: 1; }
+}
+
 /* SHARED */
 .page-wrapper {
   min-height: 100vh;

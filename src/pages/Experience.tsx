@@ -1,4 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
+import { useScrollReveal } from '../hooks/useScrollReveal'
+import { renderBullet } from '../utils/bulletMarkup'
 import './Experience.css'
 
 const experiences = [
@@ -9,9 +11,9 @@ const experiences = [
     role: 'Team Lead & Research Engineer',
     stack: ['Python', 'MediaPipe', 'OpenCV', 'AWS', 'Docker', 'PostgreSQL'],
     bullets: [
-      <>Led a 4-person team porting contactless vital sign monitoring systems to Meta Display glasses on a <strong>6-week</strong> timeline, sustaining <strong>30 fps</strong> WebSocket streams at <strong>3.7 MB/s</strong> under a compression constraint via containerized rPPG server on AWS EC2, Docker, and PostgreSQL.</>,
-      <>Achieved <strong>3.83% MAPE</strong> and <strong>80% session accuracy</strong> by replacing CHROM with adaptive green channel isolation and applying highpass and 1-Euro filters via MediaPipe FaceMesh; added cardiac-band beta correction with capped exponent range to improve individual session accuracy.</>,
-      <>Reduced respiratory rate MAE to <strong>1.47 BrPM</strong> and worst-case error to <strong>3.9 BrPM</strong> by implementing PCA-based PnP face tracking across dimensional axes in OpenCV, validating Z-plane depth as the strongest predictor; boosted cardiac-band depth SNR by <strong>8.4 dB</strong> by replacing dToF with an RGB-only PnP depth pipeline.</>,
+      'Led a **4-person** team porting contactless vital sign monitoring systems to Meta Display glasses on a **6-week** timeline, sustaining {{30 fps}} WebSocket streams at {{3.7 MB/s}} under a compression constraint via containerized rPPG server on AWS EC2, Docker, and PostgreSQL.',
+      'Achieved {{3.83%}} MAPE and {{80%}} session accuracy by replacing CHROM with adaptive green channel isolation and applying highpass and 1-Euro filters via MediaPipe FaceMesh; added cardiac-band beta correction with capped exponent range to improve individual session accuracy.',
+      'Reduced respiratory rate MAE to {{1.47 BrPM}} and worst-case error to {{3.9 BrPM}} by implementing PCA-based PnP face tracking across dimensional axes in OpenCV, validating Z-plane depth as the strongest predictor; boosted cardiac-band depth SNR by {{8.4 dB}} by replacing dToF with an RGB-only PnP depth pipeline.',
     ],
   },
   {
@@ -21,14 +23,17 @@ const experiences = [
     role: 'Software Engineering Intern',
     stack: ['C++', 'Tessy', 'AUTOSAR', 'CI/CD'],
     bullets: [
-      <>Eliminated <strong>15+</strong> critical boundary and graceful-failure bugs across <strong>3</strong> MPUs using Tessy, preventing out-of-range failures in HVAC module hinge rotation on production vehicle hardware.</>,
-      <>Reduced manual coding effort per release cycle by <strong>40%</strong> by engineering a C++ code generation script integrated into the CI/CD pipeline, automating AUTOSAR CAN message handler and header stub output.</>,
-      <>Identified incorrect register values across MOSI/MISO lines by validating SPI integrity between HVAC components and a master device using a logic analyzer, resolving discrepancies in collaboration with engineers.</>,
+      'Eliminated {{15+}} critical boundary and graceful-failure bugs across **3** MPUs using Tessy, preventing out-of-range failures in HVAC module hinge rotation on production vehicle hardware.',
+      'Reduced manual coding effort per release cycle by {{40%}} by engineering a C++ code generation script integrated into the CI/CD pipeline, automating AUTOSAR CAN message handler and header stub output.',
+      'Identified incorrect register values across MOSI/MISO lines by validating SPI integrity between HVAC components and a master device using a logic analyzer, resolving discrepancies in collaboration with engineers.',
     ],
   },
 ]
 
 export default function Experience() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  useScrollReveal(containerRef, '.exp-item')
+
   useEffect(() => {
     const hash = window.location.hash
     if (hash) {
@@ -39,7 +44,7 @@ export default function Experience() {
   }, [])
 
   return (
-    <div className="page-wrapper page-enter">
+    <div className="page-wrapper page-enter" ref={containerRef}>
       <div className="page-header">
         <span className="page-num">01 /</span>
         <h2 className="page-title">Experience</h2>
@@ -48,7 +53,7 @@ export default function Experience() {
       <div className="exp-list">
         {experiences.map((exp, i) => (
           <div
-            className="exp-item"
+            className="exp-item reveal-item"
             key={i}
             id={exp.id}
             style={{ animationDelay: `${i * 0.12}s` }}
@@ -64,7 +69,7 @@ export default function Experience() {
               <div className="exp-role">{exp.role}</div>
               <ul className="exp-bullets">
                 {exp.bullets.map((b, j) => (
-                  <li key={j}>{b}</li>
+                  <li key={j}>{renderBullet(b)}</li>
                 ))}
               </ul>
             </div>

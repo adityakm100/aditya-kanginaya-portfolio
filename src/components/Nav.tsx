@@ -23,7 +23,7 @@ export default function Nav({ activePage, setActivePage }: Props) {
         {links.map(({ label, page }) => (
           <li key={page}>
             <button
-              className={`nav-link ${activePage === page ? 'active' : ''}`}
+              className={`nav-link link-underline ${activePage === page ? 'active force-underline' : ''}`}
               onClick={() => setActivePage(page)}
             >
               {label}

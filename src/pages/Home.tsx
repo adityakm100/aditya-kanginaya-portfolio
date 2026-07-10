@@ -1,4 +1,6 @@
+import { useRef } from 'react'
 import { Page } from '../App'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import './Home.css'
 
 interface Props {
@@ -6,8 +8,11 @@ interface Props {
 }
 
 export default function Home({ setActivePage }: Props) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  useScrollReveal(containerRef)
+
   return (
-    <div className="home page-enter">
+    <div className="home page-enter" ref={containerRef}>
       <section className="hero">
         <div className="hero-grid" aria-hidden="true">
           {Array.from({ length: 8 }).map((_, i) => (
@@ -15,18 +20,18 @@ export default function Home({ setActivePage }: Props) {
           ))}
         </div>
 
-        <p className="hero-tag">Data Science @ University of Michigan</p>
-        <h1 className="hero-heading">
+        <p className="hero-tag reveal-item">Data Science @ University of Michigan</p>
+        <h1 className="hero-heading reveal-item">
           Aditya<br />
           <em>Kanginaya</em><br />
           Madhuchandra
         </h1>
-        <p className="hero-sub">
+        <p className="hero-sub reveal-item">
           Building at the intersection of machine learning, signal processing,
           and intelligent systems. Research assistant, engineer, and maker.
         </p>
 
-        <div className="hero-links">
+        <div className="hero-links reveal-item">
           <button className="btn filled" onClick={() => setActivePage('projects')}>
             View Projects
           </button>
@@ -43,7 +48,7 @@ export default function Home({ setActivePage }: Props) {
           </a>
         </div>
 
-        <div className="hero-stats">
+        <div className="hero-stats reveal-item">
           <div className="hero-stat">
             <span className="hero-stat-num">300+</span>
             <span className="hero-stat-label">Engineers & Students Reached</span>

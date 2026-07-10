@@ -6,9 +6,9 @@
   gap: 48px;
   padding: 40px 0;
   border-bottom: 1px solid var(--rule);
-  opacity: 0;
-  animation: fadeUp 0.5s ease forwards;
 }
+
+.exp-item.is-visible { animation: fadeUp 0.5s ease forwards; }
 
 .exp-date {
   font-family: 'DM Mono', monospace;
@@ -63,7 +63,8 @@
   font-size: 0.8rem;
 }
 
-.exp-bullets strong {
+.exp-bullets strong,
+.exp-bullets .metric {
   font-weight: 500;
   color: var(--ink);
 }
