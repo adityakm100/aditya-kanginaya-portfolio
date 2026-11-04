@@ -28,9 +28,9 @@ const projects: Project[] = [
     index: '01 — June / July 2026',
     name: 'Refusal Direction Attribution',
     bullets: [
-      'Replicated and extended Arditi et al. (NeurIPS 2024) refusal-direction methodology on Llama 3.2 3B using TransformerLens: extracted a single difference-in-means "refusal direction" and reduced refusal rates from {{96.9%}} to {{3.9%}} across 128 AdvBench prompts via directional ablation, and from {{89.0%}} to {{9.0%}} on JailbreakBench.',
-      'Built a novel per-prompt token attribution tool: projects residual-stream activations onto the refusal direction at each of 28 layers, producing delta-normalized heatmaps showing which input tokens most activate refusal behavior — a visualization layer absent from the original paper.',
-      'Identified Layer 27 as the critical layer (peak separation = {{26.76}}) for harmful/harmless separation — a finding that diverges from Arditi et al.\'s middle-layer result, suggesting architectural sensitivity to model scale.',
+      'Replicated Arditi et al. (NeurIPS 2024) refusal direction methodology on Llama 3.2 3B using TransformerLens, extracting a single difference-in-means direction that reduced refusal rates from {{96.9%}} to {{3.9%}} via directional ablation across 128 harmful prompts from AdvBench.',
+      'Built a per-prompt token attribution tool producing heatmaps of residual stream projections; harm-specific nouns ranked as top delta activators at layer 7, top-3 tokens accounted for {{56.1%}} of positive refusal signal across 128 harmful prompts.',
+      'Identified monotonically increasing harmful vs harmless separation across all 28 layers, peaking at layer 27; contrasting with Arditi et al.\'s finding of middle-layer dominance in larger models, validated across 10 JailbreakBench harm categories ({{89.0%}} → {{9.0%}} refusal rate).',
     ],
     tags: ['TransformerLens', 'PyTorch', 'Kaggle'],
     links: [
@@ -46,13 +46,14 @@ const projects: Project[] = [
     index: '02 — Jan / May 2026',
     name: 'AI Outreach Orchestrator',
     bullets: [
-      'Cut nonprofit outreach drafting time by {{70%}} by architecting a Planner-Writer-Critic LangGraph pipeline with per-node prompt isolation and stateful in-conversation memory that resets between sessions to prevent context bleed across clients; presented to {{300+}} attendees at the Google Developer Student Club Gemini Showcase.',
-      'Reduced draft iterations from 7 to 2–3 and token usage by {{80%}} by implementing a self-scoring Critic node evaluating output against a team-defined rubric of tone, prose structure, and voice guidelines.',
-      'Deployed as a live tool integrated with club infrastructure enabling a card-based review workflow for member-managed outreach across {{50+}} monthly contacts.',
+      'Cut nonprofit outreach drafting time by {{70%}} by architecting a Planner-Writer-Critic LangGraph pipeline for a team with per-node prompt isolation and stateful in-conversation memory that resets between sessions to prevent context bleed across clients; presented to {{300+}} attendees at the Google Developer Student Club Gemini Showcase.',
+      'Reduced iterations from 7 to 2–3 per draft and cut token usage by {{80%}} by diagnosing excessive token usage in early drafts and pivoting to a self-scoring revision system where the Critic node evaluates drafts against a team-defined rubric.',
+      'Personalized email output across {{50+}} monthly contacts by implementing RAG with ChromaDB, matching prompt intent to stored tone templates; deployed as a live web tool with a card-based review workflow for member-managed outreach.',
     ],
     tags: ['LangGraph', 'ChromaDB', 'RAG', 'Python', 'Gemini'],
     links: [],
     status: 'Deployed — May 2026',
+    note: 'Product Manager — Google Developer Student Club',
     media: {
       src: `${BASE}ai-orchestrator.png`,
       caption: 'Planner-Writer-Critic pipeline — per-node prompt isolation with stateful memory that resets between sessions.',
@@ -63,9 +64,9 @@ const projects: Project[] = [
     index: '03 — Jan / May 2026',
     name: 'CNN vs ViT Architecture Benchmarking Study',
     bullets: [
-      'Achieved {{0.952}} Test AUROC on a 12,775-image binary classification task, outperforming a ViT baseline by {{40%}} on held-out test data by engineering a custom 3-layer CNN with data augmentation and AdamW optimization to mitigate background-bias overfitting.',
-      'Diagnosed ViT test-set degradation ({{0.55}} AUROC) as a consequence of high representational capacity overfitting on small datasets, contrasting with CNN spatial inductive bias to justify final architecture selection.',
-      'Optimized cross-domain feature extraction by benchmarking transfer learning protocols across varying frozen layer configurations.',
+      'Achieved {{0.952}} Test AUROC on a 12,775-image binary classification task, outperforming a ViT baseline ({{0.55}} AUROC) on held-out test data by engineering a 3-layer CNN with data augmentation and AdamW optimization to mitigate overfitting.',
+      'Justified final architecture selection by diagnosing ViT test-set degradation ({{0.55}} AUROC) as a consequence of high representational capacity overfitting on small datasets, contrasting with CNN spatial inductive bias.',
+      'Optimized cross-domain feature extraction by benchmarking transfer learning protocols across varying frozen layer configurations, analyzing linear probing on fully connected layers to reduce overfitting across train, validation, and test partitions.',
     ],
     tags: ['PyTorch', 'Python', 'Scikit-Learn', 'NumPy'],
     links: [],

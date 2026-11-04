@@ -65,7 +65,7 @@ export default function Home({ setActivePage }: Props) {
       </section>
 
       <footer className="home-footer">
-        <span>Ann Arbor, MI — Open to Summer 2027 Internships</span>
+        <span>Ann Arbor, MI — Open to New Grad roles, May 2027</span>
         <span>adityakm@umich.edu</span>
       </footer>
     </div>

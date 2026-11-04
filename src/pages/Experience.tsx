@@ -6,14 +6,14 @@ import './Experience.css'
 const experiences = [
   {
     id: 'mni-experience',
-    date: 'Aug 2025 — Present',
+    date: 'Aug 2025 — Aug 2026',
     company: 'MNI Labs / Omni Sciences',
     role: 'Team Lead & Research Engineer',
     stack: ['Python', 'MediaPipe', 'OpenCV', 'AWS', 'Docker', 'PostgreSQL'],
     bullets: [
-      'Led a **4-person** team porting contactless vital sign monitoring systems to Meta Display glasses on a **6-week** timeline, sustaining {{30 fps}} WebSocket streams at {{3.7 MB/s}} under a compression constraint via containerized rPPG server on AWS EC2, Docker, and PostgreSQL.',
-      'Achieved {{3.83%}} MAPE and {{80%}} session accuracy by replacing CHROM with adaptive green channel isolation and applying highpass and 1-Euro filters via MediaPipe FaceMesh; added cardiac-band beta correction with capped exponent range to improve individual session accuracy.',
-      'Reduced respiratory rate MAE to {{1.47 BrPM}} and worst-case error to {{3.9 BrPM}} by implementing PCA-based PnP face tracking across dimensional axes in OpenCV, validating Z-plane depth as the strongest predictor; boosted cardiac-band depth SNR by {{8.4 dB}} by replacing dToF with an RGB-only PnP depth pipeline.',
+      'Led a **6-person** team porting contactless vital sign monitoring systems to Meta Display glasses on a **6-week** timeline, sustaining {{30 fps}} WebSocket streams at {{3.7 MB/s}} ({{10%}} higher bit rate than the previous workflow) under a compression constraint via containerized rPPG server on AWS EC2 using Docker and PostgreSQL.',
+      'Achieved {{3.83%}} MAPE and {{80%}} session accuracy across **10** trials by replacing CHROM with adaptive green channel isolation and applying highpass and 1-Euro filters via MediaPipe FaceMesh.',
+      'Constructed a relative depth estimation pipeline and reduced heart rate error from {{10.99%}} to {{7.88%}} across **20** trials, achieving up to {{27.95%}} error reduction on high-variance edge cases; used Great Lakes HPC for research workloads.',
     ],
   },
   {
@@ -23,9 +23,9 @@ const experiences = [
     role: 'Software Engineering Intern',
     stack: ['C++', 'Tessy', 'AUTOSAR', 'CI/CD'],
     bullets: [
-      'Eliminated {{15+}} critical boundary and graceful-failure bugs across **3** MPUs using Tessy, preventing out-of-range failures in HVAC module hinge rotation on production vehicle hardware.',
-      'Reduced manual coding effort per release cycle by {{40%}} by engineering a C++ code generation script integrated into the CI/CD pipeline, automating AUTOSAR CAN message handler and header stub output.',
-      'Identified incorrect register values across MOSI/MISO lines by validating SPI integrity between HVAC components and a master device using a logic analyzer, resolving discrepancies in collaboration with engineers.',
+      'Eliminated critical bugs before release across **3** MCUs using Tessy unit tests, preventing failures in HVAC module hinge rotation on production hardware.',
+      'Reduced manual coding effort per release cycle by {{40%}} by engineering a code generation script integrated into the CI/CD pipeline, automating AUTOSAR CAN message handler and header stub output.',
+      'Identified incorrect register values across MOSI/MISO lines by validating SPI integrity between components and a master device using a logic analyzer, resolving discrepancies in collaboration with engineers during hardware integration testing.',
     ],
   },
 ]
@@ -78,7 +78,7 @@ export default function Experience() {
       </div>
 
       <footer className="page-footer">
-        <span>University of Michigan — B.S.E. Data Science, Expected May 2028</span>
+        <span>University of Michigan — B.S.E. Data Science, Expected May 2027</span>
         <span>GPA 3.63 / 4.0</span>
       </footer>
     </div>
