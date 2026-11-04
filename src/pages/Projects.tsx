@@ -76,41 +76,29 @@ const projects: Project[] = [
     },
   },
   {
-    id: 'null-hunter',
-    index: '04 — Feb / Mar 2026',
-    name: 'Null Hunter',
+    id: 'axyz',
+    index: '04 — MHacks 2026',
+    name: 'Axyz',
     bullets: [
-      'Reduced manual dataset audit time by {{40%}} by designing a real-time 4-dimension data quality scoring system tracking completeness, uniqueness, consistency, and validity post-imputation.',
-      'Integrates 3 imputation strategies — Simple, KNN, and MICE — handling MCAR, MAR, and MNAR missingness across CSV and Excel inputs.',
-      'Deployed publicly on Streamlit Cloud and validated across 3 real-world benchmark datasets spanning healthcare and housing domains with missingness rates up to {{30%}}.',
+      'Built tap classification for a pen-probe assistive system that lets blind and low-vision students take paper free-response tests without a scribe, reaching {{74%}} tap accuracy across **17** trials for 1/2/3-tap gestures that drive read, next, and submit.',
+      'Reached {{95%}} box-lock success across **17** trials by implementing overhead marker tracking and four-corner homography to map the pen tip into page coordinates for haptic and spoken guidance into answer boxes.',
+      'Unblocked a **4**-person MHacks build by owning the fake/contract integration harness (headless sim before merge) and shipping the live HUD/browser UI used in the **3-minute** demo (1:40 Devpost video).',
     ],
-    tags: ['Streamlit', 'Pandas', 'Scikit-Learn', 'NumPy'],
+    tags: ['OpenCV', 'Python', 'Arduino', 'ElevenLabs', 'Gemini', 'JavaScript'],
     links: [
-      { label: 'Live Demo ↗', href: 'https://null-hunter-dashboard.streamlit.app/' },
-      { label: 'GitHub ↗', href: 'https://github.com/adityakm100/null-hunter-dashboard' },
+      { label: 'Devpost ↗', href: 'https://devpost.com/software/axyz' },
+      { label: 'GitHub ↗', href: 'https://github.com/SRoar/Axyz/tree/dev1_merged' },
     ],
-  },
-  {
-    id: 'big-ten',
-    index: '05 — 2026',
-    name: 'Big Ten Fight Song Analysis',
-    bullets: [
-      'Entry for the Big Ten Data Visualization Contest analyzing the musical and lyrical evolution of college fight songs across conferences and decades.',
-      'Built 5 interactive views in Tableau exploring tempo vs. duration across conferences, lyrical trope shifts by decade, mood analysis by conference, and early vs. modern era trope comparisons.',
-      'Surfaced that fight songs converged toward higher "Says Fight" trope prevalence from the 1920s onward while "Says Nonsense" tropes declined, and that independent schools averaged significantly higher excitement trope counts than conference-affiliated programs.',
-    ],
-    tags: ['Tableau', 'Data Visualization', 'Statistical Analysis'],
-    links: [
-      { label: 'Tableau Public ↗', href: 'https://public.tableau.com/app/profile/aditya.kanginaya.madhuchandra/viz/DataVizProjectIteration1_17678351284180/EraTropeCompare' },
-    ],
+    status: 'MHacks 2026',
+    note: 'Significant contributor — Dev 4; repository maintained by collaborator.',
     media: {
-      src: `${BASE}big-ten.png`,
-      caption: 'Interactive Tableau dashboard — musical and lyrical evolution of Big Ten fight songs across conferences and eras.',
+      src: `${BASE}axyz.png`,
+      caption: 'Axyz — pen probe, overhead camera, and live HUD guiding students to paper answer boxes without a scribe.',
     },
   },
   {
     id: 'bubbul',
-    index: '06 — April 2025',
+    index: '05 — April 2025',
     name: 'Bubbul',
     bullets: [
       'A desktop focus app that monitors browser activity in real time and nudges users toward healthier work patterns by switching between focus modes based on detected behavior.',
@@ -127,6 +115,39 @@ const projects: Project[] = [
     media: {
       src: `${BASE}bubbul.png`,
       caption: 'Bubbul desktop app — real-time focus mode switching driven by Chrome extension tab classification.',
+    },
+  },
+  {
+    id: 'null-hunter',
+    index: '06 — Feb / Mar 2026',
+    name: 'Null Hunter',
+    bullets: [
+      'Reduced manual dataset audit time by {{40%}} by designing a real-time 4-dimension data quality scoring system tracking completeness, uniqueness, consistency, and validity post-imputation.',
+      'Integrates 3 imputation strategies — Simple, KNN, and MICE — handling MCAR, MAR, and MNAR missingness across CSV and Excel inputs.',
+      'Deployed publicly on Streamlit Cloud and validated across 3 real-world benchmark datasets spanning healthcare and housing domains with missingness rates up to {{30%}}.',
+    ],
+    tags: ['Streamlit', 'Pandas', 'Scikit-Learn', 'NumPy'],
+    links: [
+      { label: 'Live Demo ↗', href: 'https://null-hunter-dashboard.streamlit.app/' },
+      { label: 'GitHub ↗', href: 'https://github.com/adityakm100/null-hunter-dashboard' },
+    ],
+  },
+  {
+    id: 'big-ten',
+    index: '07 — 2026',
+    name: 'Big Ten Fight Song Analysis',
+    bullets: [
+      'Entry for the Big Ten Data Visualization Contest analyzing the musical and lyrical evolution of college fight songs across conferences and decades.',
+      'Built 5 interactive views in Tableau exploring tempo vs. duration across conferences, lyrical trope shifts by decade, mood analysis by conference, and early vs. modern era trope comparisons.',
+      'Surfaced that fight songs converged toward higher "Says Fight" trope prevalence from the 1920s onward while "Says Nonsense" tropes declined, and that independent schools averaged significantly higher excitement trope counts than conference-affiliated programs.',
+    ],
+    tags: ['Tableau', 'Data Visualization', 'Statistical Analysis'],
+    links: [
+      { label: 'Tableau Public ↗', href: 'https://public.tableau.com/app/profile/aditya.kanginaya.madhuchandra/viz/DataVizProjectIteration1_17678351284180/EraTropeCompare' },
+    ],
+    media: {
+      src: `${BASE}big-ten.png`,
+      caption: 'Interactive Tableau dashboard — musical and lyrical evolution of Big Ten fight songs across conferences and eras.',
     },
   },
 ]
